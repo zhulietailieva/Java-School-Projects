@@ -1,0 +1,95 @@
+package Izitvane;
+
+public class SortedAssoTripple<T> {
+private class Element <T>{
+	private String n;
+	private T v;
+	int index;
+	public Element(String name, T value,int i) {
+		n=name; v=value;index=i;
+	}
+	public T getValue() {
+		return v;
+	}
+
+	public void setValue(T value) {
+		v=value;
+	}
+	public String getName() {
+		return n;
+	}
+	public int getIndex(){
+		return index;
+		}
+	public String toString() {
+		String s=""+n+":"+v+";";
+		return s;
+	}
+	}
+	private String n1,n2,n3;
+	private T v1,v2,v3;
+	
+public SortedAssoTripple(String name1,T value1,String name2,T value2,String name3,T value3) {
+	n1=name1;n2=name2;n3=name3;
+	v1=value1;v2=value2;v3=value3;
+}
+private Element<T> e1=new Element<T>(n1,v1,0);
+private Element<T> e2=new Element<T>(n2,v2,1);
+private Element<T> e3=new Element<T>(n3,v3,2);
+public void setValue(int n,T v) throws IllegalArgumentException {
+	if(n<1||n>3) throw new IllegalArgumentException();
+	if(e1.getIndex()==n) e1.setValue(v);
+	if(e2.getIndex()==n) e2.setValue(v);
+	if(e3.getIndex()==n) e3.setValue(v);
+}
+private void swapV(Element<T> a,Element<T> b) {
+	Element<T> t= a;
+	a=b;
+	b=t;
+}
+private void compare(Element<T> a,Element<T> b) {
+	int l=a.getName().length()-b.getName().length();
+	if(l<=0)l=a.getName().length();
+	else l=b.getName().length();
+	for (int i = 0; i < l; i++) {
+		if(a.getName().charAt(i)-'0'>b.getName().charAt(i)-'0') {
+			swapV(a,b);
+		}
+	}
+}
+private String myArray(Element<T>a,Element<T>b,Element<T>c) {
+	String res="";
+	String aS=a.getName();String bS=b.getName();String cS=c.getName();
+	String []myArray= {aS,bS,cS};
+	int size=myArray.length;
+	for(int i=0;i<size-1;i++) {
+		for (int j = 0; j < myArray.length; j++) {
+			if(myArray[i].compareTo(myArray[j])>0) {
+				String temp=myArray[i];
+				myArray[i]=myArray[j];
+				myArray[j]=temp;
+			}
+		}
+	}
+	for (int i = 0; i < myArray.length; i++) {
+		res+=myArray[i];
+	}
+	return res;
+}
+public String SortedN() {
+String s=	myArray(e1,e2,e3);
+return s;
+}
+private String sort() {
+	String res="";
+	compare(e1,e2);
+	compare(e2,e3);
+	compare(e1,e2);
+	res+="{ "+e1.toString()+" "+e2.toString()+" "+e3.toString()+" }";
+	return res;
+}
+public String toString() {
+	String res=sort();
+	return res;
+}
+}

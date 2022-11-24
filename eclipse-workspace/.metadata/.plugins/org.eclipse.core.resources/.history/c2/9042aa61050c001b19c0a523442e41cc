@@ -1,0 +1,13 @@
+package zadachaFraction;
+
+public class FractionTEST {
+
+	public static void main(String[] args) {
+		Fraction s=new Fraction(9,1);
+		System.out.println(s);
+		Fraction g=new Fraction(7,7);
+	Fraction c=s.mul(g);
+	System.out.println(c);
+	}
+
+}

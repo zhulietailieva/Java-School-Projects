@@ -1,0 +1,105 @@
+import java.util.Scanner;
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;;
+class Word{
+	private String word;
+	public Word(String s) {
+		word=s;
+	}
+	public boolean isWord() {
+		for (int i = 0; i < word.length(); i++) {
+			if(word.charAt(i)<65||word.charAt(i)>90)return false;
+		}
+		return true;
+	}
+	public String getWord() {
+		return word;
+	}
+	public boolean isVowel(char c) {
+		switch(c) {
+		case 'A':
+		case 'E':
+		case 'I':
+		case 'O':
+		case 'U':
+			return true;
+		}
+		return false;
+	}
+	public boolean isSinging() {
+		int constCount=0;
+		for (int i = 0; i < word.length(); i++) {
+			if(isVowel(word.charAt(i)))constCount=0;
+			else constCount++;
+			if(constCount>=2)return false;
+		}
+		if(constCount>=2)return false;
+		return true;
+	}
+	@Override
+public String toString() {
+		return word+"";
+	}
+}
+
+public class Main1 {
+
+	public static void main(String[] args) {
+		
+		Scanner inp=new Scanner(System.in);
+ArrayList<Word> list=new ArrayList<Word>();
+		while(list.size()<=100) {
+			String line=inp.nextLine();
+			if(line=="")break;
+			Word w1=new Word(line);
+			if(!doesWordExist(list,line)) {
+			list.add(w1);}
+		}
+		
+		for (int i = 0; i < list.size(); i++) {
+		System.out.println(list.get(i));
+		}
+		
+	}
+public static boolean doesWordExist(ArrayList<Word> list,String word) {
+	for (int i = 0; i < list.size(); i++) {
+		if(list.get(i).getWord()==word) {
+			return true;
+		}
+		}
+	return false;
+}
+public static <Word> ArrayList<Word> removeDublicates(ArrayList<Word> list){
+	ArrayList <Word> newList=new ArrayList<Word>();
+	for(Word element:list) {
+		if(!newList.contains(element)) {
+			newList.add(element);			
+		}		
+	}
+	return newList;
+}
+public static <Word> ArrayList<Word> removeDuplicates1(ArrayList<Word> list)
+{
+
+    // Create a new LinkedHashSet
+    Set<Word> set = new LinkedHashSet<>();
+
+    // Add the elements to set
+    set.addAll(list);
+
+    // Clear the list
+    list.clear();
+
+    // add the elements of set
+    // with no duplicates to the list
+    list.addAll(set);
+
+    // return the list
+    return list;
+}
+
+	
+
+}

@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Words {
+
+	public static void main(String[] args) {
+		
+		Scanner inp=new Scanner(System.in);
+		 ArrayList<String> list=new ArrayList<String>();
+		 while(list.size()<=100) {
+		 
+		String line=inp.nextLine();
+		if(!list.contains(line)) {
+			list.add(line);
+		}
+		
+			if(line=="") {
+			break;
+		}
+		 }
+	}
+
+}

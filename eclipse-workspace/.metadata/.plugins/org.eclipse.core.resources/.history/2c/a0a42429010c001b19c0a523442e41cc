@@ -1,0 +1,46 @@
+package zadachaFraction;
+
+public class Fraction {
+private long num,den;
+private long gcd() {
+	long n=num,d=den,t;
+	if(n==0||d==0) return 0;
+	if(n<0) n=-n;
+	if(d<0) d=-d;
+	if(n<d) {
+		t=n;
+		n=d;
+		d=t;
+	}
+	do {
+		t=n%d;
+		if(t==0) return d;
+		n=d;
+		d=t;
+	}while(true);
+}
+private void norm() {
+	if(den==0) return;
+	if(num==0) {
+		den=1; return;
+	}
+	if(den<0) {
+		num=-num;den=-den;
+	}
+	long d=gcd();
+	num/=d;
+	den/=d;
+}
+public Fraction(long n, long d) {
+	num=n;
+	den=d;
+	norm();
+}
+public Fraction(long n) {
+	num=n;
+	den=1;
+}
+public Fraction() {
+	num=0;den=1;
+}
+}

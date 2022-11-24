@@ -1,0 +1,13 @@
+
+public class Words {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+String [] a= {"1","2","3","4","4","2"};
+	}
+public String [] removeDubes(String []a) {
+	for(element:a) {
+		
+	}
+}
+}

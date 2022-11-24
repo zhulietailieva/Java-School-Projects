@@ -1,0 +1,12 @@
+package Izitvane;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+SortedAssoTripple<Integer> a=new SortedAssoTripple<Integer>("One",1,"Two",2,"Three",3);
+a.toString1()
+
+	}
+
+}

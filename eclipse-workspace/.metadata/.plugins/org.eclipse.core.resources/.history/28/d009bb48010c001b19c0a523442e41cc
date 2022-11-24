@@ -1,0 +1,11 @@
+package zadachaFraction;
+
+public class FractionTEST {
+
+	public static void main(String[] args) {
+		Fraction s=new Fraction(9,-18);
+		System.out.println(s);
+
+	}
+
+}
