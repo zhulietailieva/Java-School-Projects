@@ -3,7 +3,7 @@ public class StudentTEST {
 
 	public static void main(String[] args) {
 		
-		Student a=new Student("Zhulieta","Ilieva","Ilieva","0346127733");
+		Student a=new Student("Zhulieta","Ilieva","Ilieva","0346120000");
 		System.out.println(a.toString());
 System.out.println(a.getName1());
 System.out.println(a.getEGN());
